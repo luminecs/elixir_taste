@@ -49,4 +49,8 @@ defmodule CaseCondAndIfTest do
   test "cond2" do
     assert CaseCondAndIf.cond2() == "This is always true (equivalent to else)"
   end
+
+  test "cond3" do
+    assert CaseCondAndIf.cond3() == "1 is considered as true"
+  end
 end

@@ -99,4 +99,10 @@ defmodule CaseCondAndIf do
       true -> "This is always true (equivalent to else)"
     end
   end
+
+  def cond3 do
+    cond do
+      hd([1, 2, 3]) -> "1 is considered as true"
+    end
+  end
 end
