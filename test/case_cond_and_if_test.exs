@@ -41,4 +41,12 @@ defmodule CaseCondAndIfTest do
   test "variable_scope2" do
     assert CaseCondAndIf.variable_scope2() == 2
   end
+
+  test "cond1" do
+    assert CaseCondAndIf.cond1() == "But this will"
+  end
+
+  test "cond2" do
+    assert CaseCondAndIf.cond2() == "This is always true (equivalent to else)"
+  end
 end

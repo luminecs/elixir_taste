@@ -83,4 +83,20 @@ defmodule CaseCondAndIf do
         x
       end
   end
+
+  def cond1 do
+    cond do
+      2 + 2 == 5 -> "This will not be true"
+      2 * 2 == 3 -> "Nor this"
+      1 + 1 == 2 -> "But this will"
+    end
+  end
+
+  def cond2 do
+    cond do
+      2 + 2 == 5 -> "This is never true"
+      2 * 2 == 3 -> "Nor this"
+      true -> "This is always true (equivalent to else)"
+    end
+  end
 end
