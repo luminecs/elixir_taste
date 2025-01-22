@@ -39,4 +39,48 @@ defmodule CaseCondAndIf do
       :error -> "Won't match"
     end
   end
+
+  def if1 do
+    if true do
+      "This works!"
+    end
+  end
+
+  def if2 do
+    if false do
+      "This will never be seen"
+    end
+  end
+
+  def if3 do
+    if nil do
+      "This won't be seen"
+    else
+      "This will"
+    end
+  end
+
+  def variable_scope1 do
+    x = 1
+
+    if true do
+      # 2
+      x = x + 1
+    end
+
+    # 1
+    x
+  end
+
+  def variable_scope2 do
+    x = 1
+
+    # 2
+    x =
+      if true do
+        x + 1
+      else
+        x
+      end
+  end
 end

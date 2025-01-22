@@ -21,4 +21,24 @@ defmodule CaseCondAndIfTest do
   test "case5" do
     assert_raise(CaseClauseError, fn -> CaseCondAndIf.case5() end)
   end
+
+  test "if1" do
+    assert CaseCondAndIf.if1() == "This works!"
+  end
+
+  test "if2" do
+    assert CaseCondAndIf.if2() == nil
+  end
+
+  test "if3" do
+    assert CaseCondAndIf.if3() == "This will"
+  end
+
+  test "variable_scope1" do
+    assert CaseCondAndIf.variable_scope1() == 1
+  end
+
+  test "variable_scope2" do
+    assert CaseCondAndIf.variable_scope2() == 2
+  end
 end
