@@ -54,4 +54,19 @@ defmodule AnonymousFunctions do
   #
   #    f.(1, 3)
   #  end
+
+  def capture_operator1 do
+    fun = &is_atom/1
+    "#{is_function(fun)}, #{fun.(:hello)}, #{fun.(123)}"
+  end
+
+  def capture_operator2 do
+    fun = &String.length/1
+    fun.("hello")
+  end
+
+  def capture_operator3 do
+    add = &+/2
+    add.(1, 2)
+  end
 end

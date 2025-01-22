@@ -36,4 +36,15 @@ defmodule AnonymousFunctionsTest do
     # assert_raise(CompileError, fn -> AnonymousFunctions.clauses_guards2() end)
   end
 
+  test "capture_operator1" do
+    assert AnonymousFunctions.capture_operator1() == "true, true, false"
+  end
+
+  test "capture_operator2" do
+    assert AnonymousFunctions.capture_operator2() == 5
+  end
+
+  test "capture_operator3" do
+    assert AnonymousFunctions.capture_operator3() == 3
+  end
 end
