@@ -24,4 +24,34 @@ defmodule AnonymousFunctions do
     add = fn a, b -> a + b end
     is_function(add, 1)
   end
+
+  def closure1 do
+    add = fn a, b -> a + b end
+    double = fn a -> add.(a, a) end
+    double.(2)
+  end
+
+  def closure2 do
+    x = 42
+    (fn -> x = 0 end).()
+    x
+  end
+
+  def clauses_guards1 do
+    f = fn
+      x, y when x > 0 -> x + y
+      x, y -> x * y
+    end
+
+    f.(1, 3) + f.(-1, 3)
+  end
+
+  #  def clauses_guards2 do
+  #    f = fn
+  #      x, y when x > 0 -> x + y
+  #      x, y, z -> x * y + z
+  #    end
+  #
+  #    f.(1, 3)
+  #  end
 end
