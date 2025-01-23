@@ -34,4 +34,36 @@ defmodule BinariesStringsCharlistsTest do
     assert BinariesStringsCharlists.unicode5() == ["👩", "‍", "🚒"]
     assert BinariesStringsCharlists.unicode5() == ["👩", "\u200D", "🚒"]
   end
+
+  test "unicode6" do
+    assert BinariesStringsCharlists.unicode6() == ["👩‍🚒"]
+  end
+
+  test "unicode7" do
+    assert BinariesStringsCharlists.unicode7() == 1
+  end
+
+  test "unicode8" do
+    assert BinariesStringsCharlists.unicode8() == <<104, 101, 108, 108, 111, 0>>
+  end
+
+  test "unicode9" do
+    assert BinariesStringsCharlists.unicode9() == <<104, 101, 108, 108, 111, 231, 142, 139>>
+  end
+
+  test "bitstring1" do
+    assert BinariesStringsCharlists.bitstring1() == true
+  end
+
+  test "bitstring2" do
+    assert BinariesStringsCharlists.bitstring2() == <<3::size(4)>>
+  end
+
+  test "bitstring3" do
+    assert BinariesStringsCharlists.bitstring3() == true
+  end
+
+  test "bitstring4" do
+    assert BinariesStringsCharlists.bitstring4() == true
+  end
 end
