@@ -66,4 +66,38 @@ defmodule BinariesStringsCharlistsTest do
   test "bitstring4" do
     assert BinariesStringsCharlists.bitstring4() == true
   end
+
+  test "binary1" do
+    assert is_bitstring(<<3::4>>) == true
+    assert is_binary(<<3::4>>) == false
+    assert is_bitstring(<<0, 255, 42>>) == true
+    assert is_binary(<<0, 255, 42>>) == true
+    assert is_binary(<<42::16>>) == true
+  end
+
+  test "binary2" do
+    <<0, 1, x>> = <<0, 1, 2>>
+    assert x = 2
+
+    <<0, 1, x::binary>> = <<0, 1, 2, 3>>
+    assert <<2, 3>>
+
+    <<head::binary-size(2), rest::binary>> = <<0, 1, 2, 3>>
+    assert head == <<0, 1>>
+    assert rest == <<2, 3>>
+  end
+
+  test "binary3" do
+    assert is_binary("hello") == true
+    assert is_binary(<<239, 191, 19>>) == true
+    assert String.valid?(<<239, 191, 19>>) == false
+    assert "a" <> "ha" == "aha"
+    assert <<0, 1>> <> <<2, 3>> == <<0, 1, 2, 3>>
+  end
+
+  test "binary4" do
+    <<head, rest::binary>> = "banana"
+    assert head == ?b == true
+    assert rest == "anana"
+  end
 end
