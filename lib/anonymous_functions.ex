@@ -69,4 +69,25 @@ defmodule AnonymousFunctions do
     add = &+/2
     add.(1, 2)
   end
+
+  def capture_operator4 do
+    is_arity_2 = fn fun -> is_function(fun, 2) end
+    is_arity_2.(&+/2)
+  end
+
+  def capture_operator5 do
+    is_arity_2 = &is_function(&1, 2)
+    is_arity_2.(&+/2)
+  end
+
+  def capture_operator6 do
+    # fn x -> x + 1 end
+    fun = &(&1 + 1)
+    fun.(1)
+  end
+
+  def capture_operator7 do
+    fun = &"Good #{&1}"
+    fun.("morning")
+  end
 end

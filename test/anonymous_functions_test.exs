@@ -47,4 +47,20 @@ defmodule AnonymousFunctionsTest do
   test "capture_operator3" do
     assert AnonymousFunctions.capture_operator3() == 3
   end
+
+  test "capture_operator4" do
+    assert AnonymousFunctions.capture_operator4() == true
+  end
+
+  test "capture_operator5" do
+    assert AnonymousFunctions.capture_operator5() == true
+  end
+
+  test "capture_operator6" do
+    assert AnonymousFunctions.capture_operator6() == 2
+  end
+
+  test "capture_operator7" do
+    assert AnonymousFunctions.capture_operator7() == "Good morning"
+  end
 end
