@@ -100,4 +100,43 @@ defmodule BinariesStringsCharlistsTest do
     assert head == ?b == true
     assert rest == "anana"
   end
+
+  test "binary5" do
+    assert "ü" <> <<0>> == <<195, 188, 0>>
+    <<x, rest::binary>> = "über"
+    assert x == ?ü == false
+    assert rest == <<188, 98, 101, 114>>
+  end
+
+  test "binary6" do
+    <<x::utf8, rest::binary>> = "über"
+    assert x == ?ü == true
+    assert rest == "ber"
+  end
+
+  test "charlist1" do
+    assert ~c"hello" == [?h, ?e, ?l, ?l, ?o]
+    assert ~c"hełło" == [104, 101, 322, 322, 111]
+    assert is_list(~c"hełło") == true
+  end
+
+  test "charlist2" do
+    l = [99, 97, 116]
+    assert l == ~c"cat"
+    assert inspect(l, charlists: :as_list) == "[99, 97, 116]"
+  end
+
+  test "charlist3" do
+    assert to_charlist("hełło") == [104, 101, 322, 322, 111]
+    assert to_string(~c"hełło") == "hełło"
+    assert to_string(:hello) == "hello"
+    assert to_string(1) == "1"
+  end
+
+  test "charlist4" do
+    # ~c"this " <> ~c"fails" # ArgumentError
+    assert ~c"this " ++ ~c"works" == ~c"this works"
+    # "he" ++ "llo" # ArgumentError
+    assert "he" <> "llo" == "hello"
+  end
 end
